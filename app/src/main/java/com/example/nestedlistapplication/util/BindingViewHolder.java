@@ -5,6 +5,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class BindingViewHolder extends RecyclerView.ViewHolder {
+    @NonNull
     public final ViewDataBinding binding;
 
     public BindingViewHolder(@NonNull ViewDataBinding binding) {

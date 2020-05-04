@@ -7,10 +7,14 @@ import androidx.annotation.NonNull;
 
 import java.util.List;
 
-public class BookCategory implements Parcelable {
+public class BookCategory implements Parcelable, Identifiable {
     public final String id;
     public final String title;
     public final List<Book> books;
+
+    public BookCategory(@NonNull String id, @NonNull List<Book> books) {
+        this(id, "Category Title " + id, books);
+    }
 
     public BookCategory(@NonNull String id, @NonNull String title, @NonNull List<Book> books) {
         this.id = id;
@@ -47,4 +51,9 @@ public class BookCategory implements Parcelable {
             return new BookCategory[size];
         }
     };
+
+    @Override
+    public String getId() {
+        return id;
+    }
 }

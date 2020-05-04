@@ -6,10 +6,17 @@ import android.os.Parcelable;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 
-public class Book implements Parcelable {
+import com.example.nestedlistapplication.R;
+
+public class Book implements Parcelable, Identifiable {
     public final String id;
     public final String title;
     public final @DrawableRes int imageRes;
+    private static final @DrawableRes int DEFAULT_IMAGE_RES = R.drawable.bunbougu_art_sketchbook;
+
+    public Book(@NonNull String id) {
+        this(id, "Book Title " + id, DEFAULT_IMAGE_RES);
+    }
 
     public Book(@NonNull String id, @NonNull String title, @DrawableRes int imageRes) {
         this.id = id;
@@ -45,5 +52,10 @@ public class Book implements Parcelable {
         parcel.writeString(id);
         parcel.writeString(title);
         parcel.writeInt(imageRes);
+    }
+
+    @Override
+    public String getId() {
+        return id;
     }
 }

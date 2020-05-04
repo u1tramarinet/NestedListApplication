@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.example.nestedlistapplication.model.Book;
 import com.example.nestedlistapplication.model.BookCategory;
+import com.example.nestedlistapplication.ui.BookCategoryAdapter;
 
 import java.util.ArrayList;
 
@@ -33,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
             ArrayList<Book> books = new ArrayList<>();
             for (int j = 1; j <= 5; j++) {
                 int id = i * 10 + j;
-                Book book = new Book(String.valueOf(id), "Book Title " + id, R.drawable.bunbougu_art_sketchbook);
+                Book book = new Book(String.valueOf(id));
                 books.add(book);
             }
-            BookCategory bookCategory = new BookCategory(String.valueOf(i), "Category Title " + i, books);
+            BookCategory bookCategory = new BookCategory(String.valueOf(i), books);
             bookCategories.add(bookCategory);
         }
         return bookCategories;
